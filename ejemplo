@@ -1,58 +1,198 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!DOCTYPE rdf:RDF [
-  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
-  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
-  <!ENTITY ns_transport "file://www.ibm.com/WSRR/Transport#">
-  <!ENTITY wsrr "http://www.ibm.com/xmlns/prod/serviceregistry/6/1/model#">
-]>
-
-<rdf:RDF
-  xmlns:xsd="&xsd;"
-  xmlns:rdf="&rdf;"
-  xmlns:rdfs="&rdfs;"
-  xmlns:owl="&owl;"
-  xmlns:ns_transport="&ns_transport;"
-  xmlns:wsrr="&wsrr;"
->
-
-  <owl:Ontology rdf:about="&ns_transport;TransportOntology">
-    <owl:imports rdf:resource="http://www.ibm.com/xmlns/prod/serviceregistry/6/1/model"/> 
-    <wsrr:prefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">transport</wsrr:prefix>
-    <rdfs:label>Sistema de clasificación de transporte.</rdfs:label>
-    <rdfs:comment>Los coches y autobuses son superclases.</rdfs:comment>
-  </owl:Ontology>
-
-  <owl:Class rdf:about="&ns_transport;Transport">
-    <rdfs:label>Transporte</rdfs:label>
-    <rdfs:comment>Clase raíz de nivel superior para transporte.</rdfs:comment>
-  </owl:Class>
-
-  <owl:Class rdf:about="&ns_transport;LandTransport">
-    <rdfs:subClassOf rdf:resource="&ns_transport;Transport"/>
-    <rdfs:label>Transporte por tierra.</rdfs:label>
-    <rdfs:comment>Clase de transporte por tierra de nivel medio.</rdfs:comment>
-  </owl:Class>
-
-  <owl:Class rdf:about="&ns_transport;AirTransport">
-    <rdfs:subClassOf rdf:resource="&ns_transport;Transport"/>
-    <rdfs:label>Transporte aéreo.</rdfs:label>
-    <rdfs:comment>Clase de transporte aéreo de nivel medio.</rdfs:comment>
-  </owl:Class>
-
-  <owl:Class rdf:about="&ns_transport;Bus">
-    <rdfs:subClassOf rdf:resource="&ns_transport;LandTransport"/>
-    <rdfs:label>Autobús.</rdfs:label>
-    <rdfs:comment>Clase de autobús de nivel inferior.</rdfs:comment>
-  </owl:Class>
-
-  <owl:Class rdf:about="&ns_transport;Car">
-    <rdfs:subClassOf rdf:resource="&ns_transport;LandTransport"/>
-    <rdfs:label>Coche.</rdfs:label>
-    <rdfs:comment>Clase de coche de nivel inferior.</rdfs:comment>
-  </owl:Class>
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#"
+     xml:base="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7"/>
+    
 
 
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#es_base_de -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#es_base_de">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Base"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Pizza"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#es_ingrediente_de -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#es_ingrediente_de">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Topicos"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Pizza"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#tiene_base -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#tiene_base">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Pizza"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Base"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#tiene_ingredientes -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#tiene_ingredientes">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Pizza"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Topicos"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Precio_fabricacion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Precio_fabricacion">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Base"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Topicos"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#fecha_fabricacion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#fecha_fabricacion">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Base"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Pizza"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#fecha_vencimiento -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#fecha_vencimiento">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Base"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Pizza"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Topicos"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#numero -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#numero">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Pizza"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#precio_venta -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#precio_venta">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Pizza"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Base -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Base"/>
+    
+
+
+    <!-- http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Chocolate -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Chocolate">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Pizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Hawaiana -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Hawaiana">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Pizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Oregano -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Oregano">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Topicos"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#P.champiñones -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#P.champiñones">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Pizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Pan -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Pan">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Base"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Pimienta -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Pimienta">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Topicos"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Pizza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Pizza"/>
+    
+
+
+    <!-- http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Topicos -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/eduardosilvestre/ontologies/2020/2/untitled-ontology-7#Topicos"/>
 </rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
